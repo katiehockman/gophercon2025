@@ -13,12 +13,12 @@ import (
 	"github.com/chromedp/chromedp"
 )
 
-// sessions returns all sessions as a slice
-func sessions() []session {
+// sessions returns a copy of all sessions
+func sessions() []Session {
 	sessionsMutex.RLock()
 	defer sessionsMutex.RUnlock()
 
-	sessions := make([]session, 0, len(sessionsMap))
+	sessions := make([]Session, 0, len(sessionsMap))
 	for _, session := range sessionsMap {
 		sessions = append(sessions, session)
 	}
@@ -26,7 +26,7 @@ func sessions() []session {
 }
 
 // sessionByID returns a session by its ID
-func sessionByID(id string) (session, bool) {
+func sessionByID(id string) (Session, bool) {
 	sessionsMutex.RLock()
 	defer sessionsMutex.RUnlock()
 
@@ -66,23 +66,8 @@ type fetcher struct {
 	cancel, browserCancel context.CancelFunc
 }
 
-// session represents a GopherCon session
-type session struct {
-	ID          string   `json:"id"`
-	Title       string   `json:"title"`
-	URL         string   `json:"url"`
-	Date        string   `json:"date,omitempty"`
-	Description string   `json:"description,omitempty"`
-	Time        string   `json:"time,omitempty"`
-	Location    string   `json:"location,omitempty"`
-	Speakers    []string `json:"speakers,omitempty"`
-	Duration    string   `json:"duration,omitempty"`
-	Speaker     string   `json:"speaker,omitempty"`
-	Track       string   `json:"track,omitempty"`
-}
-
 // Global session maps loaded at startup
-var sessionsMap = make(map[string]session)
+var sessionsMap = make(map[string]Session)
 var sessionsMutex sync.RWMutex
 
 // loadAllSessions loads all GopherCon sessions at startup using parallelization
@@ -148,7 +133,7 @@ func (f *fetcher) loadAllSessions() error {
 // sessionResult represents the result of loading a session
 type sessionResult struct {
 	sessionID string
-	session   session
+	session   Session
 	err       error
 }
 
@@ -159,7 +144,7 @@ func (f *fetcher) worker(id int, sessionChan <-chan string, resultChan chan<- se
 	for sessionID := range sessionChan {
 		url := fmt.Sprintf("https://www.gophercon.com/agenda/session/%s", sessionID)
 
-		var session session
+		var session Session
 		var err error
 
 		// Retry logic
@@ -184,20 +169,20 @@ func (f *fetcher) worker(id int, sessionChan <-chan string, resultChan chan<- se
 }
 
 // loadSession loads a single session
-func (f *fetcher) loadSession(sessionID, url string) (session, error) {
+func (f *fetcher) loadSession(sessionID, url string) (Session, error) {
 	htmlContent, err := f.fetchPage(url)
 	if err != nil {
-		return session{}, fmt.Errorf("failed to fetch session %s: %v", sessionID, err)
+		return Session{}, fmt.Errorf("failed to fetch session %s: %v", sessionID, err)
 	}
 
 	// Parse the HTML to extract session information
 	doc, err := goquery.NewDocumentFromReader(strings.NewReader(htmlContent))
 	if err != nil {
-		return session{}, fmt.Errorf("failed to parse HTML for session %s: %v", sessionID, err)
+		return Session{}, fmt.Errorf("failed to parse HTML for session %s: %v", sessionID, err)
 	}
 
 	// Extract session information from the HTML using specific selectors from the actual structure
-	session := session{
+	session := Session{
 		ID:  sessionID,
 		URL: url,
 	}
@@ -242,22 +227,6 @@ func (f *fetcher) loadSession(sessionID, url string) (session, error) {
 	})
 
 	return session, nil
-}
-
-// String returns a formatted string representation of the session
-func (s session) String() string {
-	var result strings.Builder
-	result.WriteString(fmt.Sprintf("**%s** (ID: %s)\n", s.Title, s.ID))
-	result.WriteString(fmt.Sprintf("URL: %s\n", s.URL))
-	result.WriteString(fmt.Sprintf("Date: %s\n", s.Date))
-	result.WriteString(fmt.Sprintf("Time: %s\n", s.Time))
-	result.WriteString(fmt.Sprintf("Location: %s\n", s.Location))
-	if len(s.Speakers) > 0 {
-		result.WriteString(fmt.Sprintf("Speakers: %s\n", strings.Join(s.Speakers, ", ")))
-	}
-
-	result.WriteString(fmt.Sprintf("Description: %s\n", s.Description))
-	return result.String()
 }
 
 // fetchPage fetches HTML content using chromedp
