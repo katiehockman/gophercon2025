@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"flag"
 	"fmt"
 	"log"
 	"os"
@@ -51,7 +52,7 @@ func AllSessions(ctx context.Context, _ *mcp.ServerSession, _ *mcp.CallToolParam
 
 	// Block until sessions are ready.
 	<-sessionsReady
-	
+
 	var res mcp.CallToolResultFor[SessionsResult]
 	res.Content = []mcp.Content{
 		&mcp.TextContent{Text: "Successfully found all sessions."},

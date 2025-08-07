@@ -2,8 +2,10 @@ package main
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"log"
+	"os"
 	"runtime"
 	"strings"
 	"sync"
@@ -15,9 +17,6 @@ import (
 
 var sessionsMap = make(map[string]Session)
 var sessionsMutex sync.RWMutex
-
-// Channel to signal when sessions are fully loaded.
-var sessionsReady = make(chan struct{})
 
 // sessions returns a copy of all sessions.
 func sessions() []Session {
@@ -143,7 +142,7 @@ func (f *fetcher) worker(id int, sessionChan <-chan string, resultChan chan<- se
 
 		// Retry logic
 		for attempt := 1; attempt <= maxRetries; attempt++ {
-			session, err = f.loadSession(sessionID, url)
+			session, err = f.parseSession(sessionID, url)
 			if err == nil {
 				break
 			}
@@ -242,7 +241,7 @@ func (f *fetcher) fetchPage(url string) (string, error) {
 		return "", fmt.Errorf("chromedp failed: %v", err)
 	}
 	return htmlContent, nil
-}}
+}
 
 func loadSessions() error {
 	if *offlineMode {
@@ -302,3 +301,4 @@ var sessionIDs = []string{
 	"1557391", "1545679", "1545681", "1557342", "1572366", "1557343", "1545685", "1545686", "1545687", "1557395",
 	"1557396", "1557397", "1557345", "1557398", "1557399", "1557400", "1557347", "1557344", "1557402", "1557403",
 	"1545674", "1557401", "1557404", "1557405", "1557195",
+}
