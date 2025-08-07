@@ -73,7 +73,7 @@ type fetcher struct {
 }
 
 // loadAllSessions loads all GopherCon sessions at startup using parallelization
-func (f *fetcher) loadAllSessions() error {
+func (f *fetcher) loadAllSessions() {
 	log.Printf("Loading %d sessions from GopherCon 2025 using parallel processing...", len(sessionIDs))
 
 	// Configuration for parallel processing
