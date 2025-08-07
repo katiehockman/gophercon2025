@@ -9,11 +9,6 @@ import (
 	"github.com/modelcontextprotocol/go-sdk/mcp"
 )
 
-var (
-	sessionsLoaded bool
-	loadingError   error
-)
-
 func main() {
 	server := mcp.NewServer(&mcp.Implementation{
 		Name:    "gophercon25",
@@ -21,7 +16,7 @@ func main() {
 		Version: "v1.0.0",
 	}, nil)
 
-	// Add tools
+	// Add tools.
 	mcp.AddTool(server, &mcp.Tool{
 		Name:        "get_all_sessions",
 		Description: "Get a list of all GopherCon 2025 sessions with all relevant information.",
@@ -31,20 +26,13 @@ func main() {
 		Description: "Get detailed information about a specific GopherCon session by its ID",
 	}, SessionByID)
 
-	// Start session loading in background
+	// Start session loading in background.
 	go func() {
 		fetcher := newFetcher()
 		defer fetcher.Close()
 
 		log.Println("Loading GopherCon agenda sessions...")
-		if err := fetcher.loadAllSessions(); err != nil {
-			log.Printf("Failed to load sessions: %v", err)
-			loadingError = err
-			return
-		}
-
-		sessionsLoaded = true
-		log.Printf("Successfully loaded %d sessions", len(sessionsMap))
+		fetcher.loadAllSessions()
 	}()
 
 	t := mcp.NewLoggingTransport(mcp.NewStdioTransport(), os.Stderr)
@@ -54,19 +42,13 @@ func main() {
 	}
 }
 
-func AllSessions(ctx context.Context, _ *mcp.ServerSession, _ *mcp.CallToolParamsFor[EmptyParams]) (*mcp.CallToolResultFor[SessionsResult], error) {
-	// Tool 1: Get all sessions
+func AllSessions(ctx context.Context, _ *mcp.ServerSession, _ *mcp.CallToolParamsFor[struct{}]) (*mcp.CallToolResultFor[SessionsResult], error) {
+	// Tool 1: Get all sessions.
+
+	// Block until sessions are ready.
+	<-sessionsReady
+	
 	var res mcp.CallToolResultFor[SessionsResult]
-
-	if !sessionsLoaded {
-		if loadingError != nil {
-			return nil, fmt.Errorf("Error loading sessions: %w", loadingError)
-		}
-		res.Content = []mcp.Content{
-			&mcp.TextContent{Text: "Sessions are still loading, results may be incomplete."},
-		}
-	}
-
 	res.StructuredContent = SessionsResult{
 		Sessions: sessions(),
 	}
@@ -75,18 +57,12 @@ func AllSessions(ctx context.Context, _ *mcp.ServerSession, _ *mcp.CallToolParam
 }
 
 func SessionByID(ctx context.Context, _ *mcp.ServerSession, params *mcp.CallToolParamsFor[SessionIDParams]) (*mcp.CallToolResultFor[SessionsResult], error) {
-	// Tool 2: Get session details by ID
+	// Tool 2: Get session details by ID.
+
+	// Block until sessions are ready.
+	<-sessionsReady
+
 	var res mcp.CallToolResultFor[SessionsResult]
-
-	if !sessionsLoaded {
-		if loadingError != nil {
-			return nil, fmt.Errorf("Error loading sessions: %w", loadingError)
-		}
-		res.Content = []mcp.Content{
-			&mcp.TextContent{Text: "Sessions are still loading, results may be incomplete."},
-		}
-	}
-
 	session, exists := sessionByID(params.Arguments.SessionID)
 	if !exists {
 		res.Content = []mcp.Content{
@@ -104,21 +80,18 @@ func SessionByID(ctx context.Context, _ *mcp.ServerSession, params *mcp.CallTool
 	return &res, nil
 }
 
-// EmptyParams represents an empty request struct for tools that don't need input
-type EmptyParams struct{}
-
-// SessionIDParams represents parameters for session ID requests
+// SessionIDParams are the parameters for session ID requests.
 type SessionIDParams struct {
-	// SessionID is the ID string for a GopherCon session
+	// SessionID is the ID string for a GopherCon session.
 	SessionID string `json:"session_id"`
 }
 
-// SessionsResult represents a list of GopherCon Sessions
+// SessionsResult is a list of GopherCon Sessions.
 type SessionsResult struct {
 	Sessions []Session `json:"sessions"`
 }
 
-// Session represents a GopherCon Session
+// Session is a single GopherCon Session.
 type Session struct {
 	ID          string   `json:"id"`
 	Title       string   `json:"title"`

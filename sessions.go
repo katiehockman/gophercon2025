@@ -13,7 +13,13 @@ import (
 	"github.com/chromedp/chromedp"
 )
 
-// sessions returns a copy of all sessions
+var sessionsMap = make(map[string]Session)
+var sessionsMutex sync.RWMutex
+
+// Channel to signal when sessions are fully loaded.
+var sessionsReady = make(chan struct{})
+
+// sessions returns a copy of all sessions.
 func sessions() []Session {
 	sessionsMutex.RLock()
 	defer sessionsMutex.RUnlock()
@@ -52,7 +58,7 @@ func newFetcher() *fetcher {
 	f.cancel = cancel
 	// Create a browser context
 	f.ctx, f.browserCancel = chromedp.NewContext(ctx)
-	log.Println("Connected")
+	log.Println("Connected.")
 	return &f
 }
 
@@ -66,10 +72,6 @@ type fetcher struct {
 	cancel, browserCancel context.CancelFunc
 }
 
-// Global session maps loaded at startup
-var sessionsMap = make(map[string]Session)
-var sessionsMutex sync.RWMutex
-
 // loadAllSessions loads all GopherCon sessions at startup using parallelization
 func (f *fetcher) loadAllSessions() error {
 	log.Printf("Loading %d sessions from GopherCon 2025 using parallel processing...", len(sessionIDs))
@@ -78,7 +80,7 @@ func (f *fetcher) loadAllSessions() error {
 	maxWorkers := runtime.GOMAXPROCS(0) // Use number of available CPU cores
 	const maxRetries = 3
 
-	log.Printf("Using %d workers for parallel processing", maxWorkers)
+	log.Printf("Using %d workers for parallel processing.", maxWorkers)
 
 	// Create channels for coordination
 	sessionChan := make(chan string, len(sessionIDs))
@@ -86,7 +88,7 @@ func (f *fetcher) loadAllSessions() error {
 
 	// Start worker goroutines
 	var wg sync.WaitGroup
-	for i := 0; i < maxWorkers; i++ {
+	for i := range maxWorkers {
 		wg.Add(1)
 		go f.worker(i, sessionChan, resultChan, &wg, maxRetries)
 	}
@@ -105,39 +107,31 @@ func (f *fetcher) loadAllSessions() error {
 		close(resultChan)
 	}()
 
-	// Process results
-	successCount := 0
-	errorCount := 0
-
 	for result := range resultChan {
 		if result.err != nil {
-			log.Printf("Error loading session %s: %v", result.sessionID, result.err)
-			errorCount++
+			log.Printf("Error loading session %s: %v.", result.sessionID, result.err)
 			continue
 		}
 
-		// Thread-safe write to sessionsMap
+		// Thread-safe write to sessionsMap.
 		sessionsMutex.Lock()
 		sessionsMap[result.session.ID] = result.session
 		sessionsMutex.Unlock()
 
-		log.Printf("Successfully loaded session %s: %s", result.session.ID, result.session.Title)
-		successCount++
+		log.Printf("Successfully loaded session %s: %s.", result.session.ID, result.session.Title)
 	}
 
-	log.Printf("Session loading complete: %d successful, %d errors", successCount, errorCount)
 	log.Printf("Total sessions loaded: %d", len(sessionsMap))
-	return nil
+	close(sessionsReady)
 }
 
-// sessionResult represents the result of loading a session
+// sessionResult is the result of loading a session.
 type sessionResult struct {
 	sessionID string
 	session   Session
 	err       error
 }
 
-// worker processes session loading tasks
 func (f *fetcher) worker(id int, sessionChan <-chan string, resultChan chan<- sessionResult, wg *sync.WaitGroup, maxRetries int) {
 	defer wg.Done()
 
@@ -168,20 +162,20 @@ func (f *fetcher) worker(id int, sessionChan <-chan string, resultChan chan<- se
 	}
 }
 
-// loadSession loads a single session
+// loadSession loads a single session.
 func (f *fetcher) loadSession(sessionID, url string) (Session, error) {
 	htmlContent, err := f.fetchPage(url)
 	if err != nil {
 		return Session{}, fmt.Errorf("failed to fetch session %s: %v", sessionID, err)
 	}
 
-	// Parse the HTML to extract session information
+	// Parse the HTML to extract session information.
 	doc, err := goquery.NewDocumentFromReader(strings.NewReader(htmlContent))
 	if err != nil {
 		return Session{}, fmt.Errorf("failed to parse HTML for session %s: %v", sessionID, err)
 	}
 
-	// Extract session information from the HTML using specific selectors from the actual structure
+	// Extract session information from the HTML using specific selectors from the actual structure.
 	session := Session{
 		ID:  sessionID,
 		URL: url,
@@ -229,16 +223,16 @@ func (f *fetcher) loadSession(sessionID, url string) (Session, error) {
 	return session, nil
 }
 
-// fetchPage fetches HTML content using chromedp
+// fetchPage fetches HTML content using chromedp.
 func (f *fetcher) fetchPage(url string) (string, error) {
 	tabCtx, cancel := chromedp.NewContext(f.ctx)
 	defer cancel()
 
-	// Set a timeout per request
+	// Set a timeout per request.
 	tabCtx, cancelTimeout := context.WithTimeout(tabCtx, 15*time.Second)
 	defer cancelTimeout()
 
-	log.Printf("Fetching %s", url)
+	log.Printf("Fetching %q.", url)
 	var htmlContent string
 	if err := chromedp.Run(tabCtx,
 		chromedp.Navigate(url),
@@ -250,7 +244,7 @@ func (f *fetcher) fetchPage(url string) (string, error) {
 	return htmlContent, nil
 }
 
-// Session IDs for GopherCon 2025
+// sessionIDs are hard-coded session IDs for GopherCon 2025.
 var sessionIDs = []string{
 	"1545653", "1557197", "1590663", "1545640", "1590103", "1594224", "1545643", "1545641", "1557237", "1557206",
 	"1545646", "1557199", "1557216", "1545650", "1545651", "1565804", "1557235", "1545655", "1545656", "1545657",
