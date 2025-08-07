@@ -49,6 +49,9 @@ func AllSessions(ctx context.Context, _ *mcp.ServerSession, _ *mcp.CallToolParam
 	<-sessionsReady
 	
 	var res mcp.CallToolResultFor[SessionsResult]
+	res.Content = []mcp.Content{
+		&mcp.TextContent{Text: "Successfully found all sessions."},
+	}
 	res.StructuredContent = SessionsResult{
 		Sessions: sessions(),
 	}
