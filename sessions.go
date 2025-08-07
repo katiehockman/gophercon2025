@@ -72,8 +72,8 @@ type fetcher struct {
 	cancel, browserCancel context.CancelFunc
 }
 
-// loadAllSessions loads all GopherCon sessions at startup using parallelization
-func (f *fetcher) loadAllSessions() {
+// fetch fetches all GopherCon sessions in parallel
+func (f *fetcher) fetch() {
 	log.Printf("Loading %d sessions from GopherCon 2025 using parallel processing...", len(sessionIDs))
 
 	// Configuration for parallel processing
@@ -162,8 +162,8 @@ func (f *fetcher) worker(id int, sessionChan <-chan string, resultChan chan<- se
 	}
 }
 
-// loadSession loads a single session.
-func (f *fetcher) loadSession(sessionID, url string) (Session, error) {
+// parseSession parses a single session from the HTML.
+func (f *fetcher) parseSession(sessionID, url string) (Session, error) {
 	htmlContent, err := f.fetchPage(url)
 	if err != nil {
 		return Session{}, fmt.Errorf("failed to fetch session %s: %v", sessionID, err)
@@ -229,7 +229,7 @@ func (f *fetcher) fetchPage(url string) (string, error) {
 	defer cancel()
 
 	// Set a timeout per request.
-	tabCtx, cancelTimeout := context.WithTimeout(tabCtx, 15*time.Second)
+	tabCtx, cancelTimeout := context.WithTimeout(tabCtx, 30*time.Second)
 	defer cancelTimeout()
 
 	log.Printf("Fetching %q.", url)
@@ -242,6 +242,55 @@ func (f *fetcher) fetchPage(url string) (string, error) {
 		return "", fmt.Errorf("chromedp failed: %v", err)
 	}
 	return htmlContent, nil
+}}
+
+func loadSessions() error {
+	if *offlineMode {
+		log.Printf("Running in offline mode, loading sessions from %s", *dataFile)
+		if err := loadSessionsFromFile(*dataFile); err != nil {
+			return fmt.Errorf("Failed to load sessions from file: %w", err)
+		}
+		close(sessionsReady)
+		return nil
+	}
+	// Load sessions in the background.
+	go func() {
+		log.Println("Loading GopherCon agenda sessions...")
+		fetcher := newFetcher()
+		defer fetcher.Close()
+		fetcher.fetch()
+		close(sessionsReady)
+	}()
+	return nil
+}
+
+// loadSessionsFromFile loads sessions from a JSON file
+func loadSessionsFromFile(filename string) error {
+	file, err := os.Open(filename)
+	if err != nil {
+		return fmt.Errorf("failed to open file %s: %w", filename, err)
+	}
+	defer file.Close()
+
+	var sessionsData []Session
+	decoder := json.NewDecoder(file)
+
+	if err := decoder.Decode(&sessionsData); err != nil {
+		return fmt.Errorf("failed to decode sessions from JSON: %w", err)
+	}
+
+	log.Printf("Loaded %d sessions from file", len(sessionsData))
+
+	// Load sessions into the global map
+	sessionsMutex.Lock()
+	defer sessionsMutex.Unlock()
+	for _, session := range sessionsData {
+		sessionsMap[session.ID] = session
+		log.Printf("Added session %s: %s", session.ID, session.Title)
+	}
+
+	log.Printf("Total sessions in map: %d", len(sessionsMap))
+	return nil
 }
 
 // sessionIDs are hard-coded session IDs for GopherCon 2025.
@@ -253,4 +302,3 @@ var sessionIDs = []string{
 	"1557391", "1545679", "1545681", "1557342", "1572366", "1557343", "1545685", "1545686", "1545687", "1557395",
 	"1557396", "1557397", "1557345", "1557398", "1557399", "1557400", "1557347", "1557344", "1557402", "1557403",
 	"1545674", "1557401", "1557404", "1557405", "1557195",
-}

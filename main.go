@@ -9,7 +9,20 @@ import (
 	"github.com/modelcontextprotocol/go-sdk/mcp"
 )
 
+var (
+	offlineMode = flag.Bool("offline", false, "Run in offline mode using cached session data")
+	dataFile    = flag.String("data-file", "sessions_backup.json", "File to save/load session data")
+)
+
+// Channel to signal when sessions are fully loaded.
+var sessionsReady = make(chan bool)
+
 func main() {
+	flag.Parse()
+	if err := loadSessions(); err != nil {
+		panic(err)
+	}
+
 	server := mcp.NewServer(&mcp.Implementation{
 		Name:    "gophercon25",
 		Title:   "GopherCon 2025 Agenda Server",
@@ -25,15 +38,6 @@ func main() {
 		Name:        "get_session_details",
 		Description: "Get detailed information about a specific GopherCon session by its ID",
 	}, SessionByID)
-
-	// Start session loading in background.
-	go func() {
-		fetcher := newFetcher()
-		defer fetcher.Close()
-
-		log.Println("Loading GopherCon agenda sessions...")
-		fetcher.loadAllSessions()
-	}()
 
 	t := mcp.NewLoggingTransport(mcp.NewStdioTransport(), os.Stderr)
 	log.Printf("Starting GopherCon agenda server...")

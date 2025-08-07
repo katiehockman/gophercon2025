@@ -1,0 +1,669 @@
+[
+  {
+    "id": "1557235",
+    "title": "Afternoon Break",
+    "url": "https://www.gophercon.com/agenda/session/1557235",
+    "description": "Assorted Sodas and Sparkling Waters",
+    "time": "Tue Aug 26, 3:00 PM - 5:00 PM EDT / Wed Aug 27, 4:00 AM - 6:00 AM Your local time   (2 hours)",
+    "location": "Foyer, Level 4, North Javits",
+    "duration": "(2 hours)"
+  },
+  {
+    "id": "1545682",
+    "title": "Coffee with the Exhibitors",
+    "url": "https://www.gophercon.com/agenda/session/1545682",
+    "description": "Freshly Brewed Regular and Decaffeinated CoffeeHot Water with Assorted TeasServed with Soy Milk, 2%, Skim, and Half \u0026 Half, as well as assorted sweeteners",
+    "time": "Wed Aug 27, 8:00 AM - 10:00 AM EDT / 9:00 PM - 11:00 PM Your local time   (2 hours)",
+    "location": "The Overview, Rm 503 - 504, Level 5, North Javits",
+    "duration": "(2 hours)"
+  },
+  {
+    "id": "1557400",
+    "title": "Supercharging ML Pipelines with Go",
+    "url": "https://www.gophercon.com/agenda/session/1557400",
+    "description": "Building scalable and efficient machine learning pipelines often requires overcoming bottlenecks in data transfer, feature retrieval, and orchestration. This talk showcases how Go was leveraged to operationalize an ML model service, transforming it into a high-performance, real-time system. By utilizing Go’s powerful concurrency model, shared memory for inter-process communication, and efficient queuing mechanisms, we reduced inference times from hours to just 10-15 minutes.We’ll explore the architecture that decouples Go’s operational responsibilities—such as feature retrieval, queuing, and shared memory management—from the ML model’s ranking tasks. Attendees will learn how shared memory was used to transfer millions of scores efficiently, how Go’s interfaces enabled rapid prototyping, and how its strong typing and safety ensured robust system design. Real-world benchmarks, implementation details, and lessons learned will provide actionable insights for engineers tackling similar challenges in high-performance computing and distributed systems.Whether you’re a software engineer, system architect, or distributed systems enthusiast, this talk will demonstrate how Go can be the backbone of scalable and efficient ML inference pipelines.Talk/Attendee Level: All attendees",
+    "time": "Thu Aug 28, 12:00 PM - 12:25 PM EDT / Fri Aug 29, 1:00 AM - 1:25 AM Your local time   (25 min)",
+    "location": "The Overview, Room 502, Level 5, North Javits",
+    "speakers": [
+      "Vaidehi Thete"
+    ],
+    "duration": "(25 min)"
+  },
+  {
+    "id": "1557344",
+    "title": "Lightning Talks",
+    "url": "https://www.gophercon.com/agenda/session/1557344",
+    "description": "Programming To Be Announced in July",
+    "time": "Thu Aug 28, 1:25 PM - 2:10 PM EDT / Fri Aug 29, 2:25 AM - 3:10 AM Your local time   (45 min)",
+    "location": "The Overview, Room 502, Level 5, North Javits",
+    "duration": "(45 min)"
+  },
+  {
+    "id": "1590103",
+    "title": "Full-Day Workshop: AI-Powered Systems in Go: RAG \u0026 Tool Calling (requires a separate ticket)",
+    "url": "https://www.gophercon.com/agenda/session/1590103",
+    "description": "Level: IntermediateDescription: Building modern applications requires systems that can retrieve, process, and act on information intelligently. This workshop introduces Retrieval-Augmented Generation (RAG) to improve responses in Go applications by fetching relevant data dynamically. It then expands into Tool Calling (Function Calling), allowing AI-powered applications to execute predefined actions, interact with external systems, and automate workflows.By the end of this hands-on, full-day workshop, you’ll have a working knowledge of how to ingest and retrieve documents, integrate with APIs, and use function calling to control external systems—all within Go and the AI system of your choosing.What a student is expected to learnYou’ll leave this workshop with working code samples, a clear understanding of RAG and Tool Calling, and a roadmap for integrating these capabilities into your Go applications. 🚀Part 1: Retrieval-Augmented Generation (RAG) in Go• Understanding RAG Concepts: Improve responses by dynamically retrieving relevant context rather than relying solely on static training data.• Ingesting and Processing Documents: Build pipelines to index and retrieve documents from client systems.• Interacting with AI-compatible APIs: Learn how Go applications can connect to vLLM, Ollama, OpenAI, or other AI services.• Optimizing Performance \u0026 Latency: Implement caching, batching, and parallel processing to enhance efficiency.• Using Vector Databases: Store and search embeddings with tools such as Chroma, Pinecone, Weaviate, Milvus or pgvector in PostgreSQL.Part 2: Tool Calling \u0026 Function Execution in Go• How AI Uses Tool Calling: Enable external system control by allowing AI to invoke predefined functions in Go.• Building Function Calls with OpenAI-compatible Systems: Define structured function inputs and outputs for AI-driven interactions.• Connecting to External APIs \u0026 Databases – Trigger real-world actions, query databases, and automate workflows.• Handling Responses \u0026 Errors – Ensure safe and reliable execution of AI-invoked functions.Prerequisites• It is expected that you will have been coding in Go for several months. • Have a functioning Go environment installed with Go 1.23 or later.Recommended Preparation• Before the workshop, you’ll be asked to clone a repository that will be shared with you ahead of time.• Please read the README.md for installing all the tooling before class.• The repository will contain some of the code that we’ll work on during the class.• Run Docker or any other container runtime as some of the dependencies will be downloaded in that format.• To save on the bandwidth, and not rely on Internet access during the workshop, the repository will direct you on how to download and cache the models required to run the class.• Please email the instructor, Florin Patan, for assistance.",
+    "time": "Tue Aug 26, 8:30 AM - 5:30 PM EDT / Tue Aug 26, 9:30 PM - Wed Aug 27, 6:30 AM Your local time   (9 hours)",
+    "location": "Room 410, Level 4, North Javits",
+    "speakers": [
+      "Florin Pățan"
+    ],
+    "duration": "(9 hours)"
+  },
+  {
+    "id": "1545643",
+    "title": "Full-Day Workshop: Ultimate Software Design and Engineering (requires a separate ticket)",
+    "url": "https://www.gophercon.com/agenda/session/1545643",
+    "description": "Level: IntermediateDescription: \"As a program evolves and acquires more features, it becomes complicated, with subtle dependencies between components. Over time, complexity accumulates, and it becomes harder and harder for programmers to keep all the relevant factors in their minds as they modify the system. This slows down development and leads to bugs, which slow development even more and add to its cost. Complexity increases inevitably over the life of any program. The larger the program, and the more people that work on it, the more diﬃcult it is to manage complexity.\" – John OusterhoutThis class teaches you how to engineer production-level software in Go leveraging the power of a domain-driven, data-oriented architecture that can run in Kubernetes. From the beginning, you will program along with the instructor as he walks through the design philosophies and guidelines for engineering software in Go. With each new feature added to the project, you will learn how to think about, read, maintain, manage, and debug code. The core of this class is to teach you how to handle and reduce the spread of complexity in the systems you are building.What a student is expected to learnDeploy First Mentality: We begin to build a service with a focus on the ability to maintain, manage, and debug the service in Kubernetes.• Design Philosophy, Guidelines, What to Expect• Project Layers, Policies, and Guidelines• Prepare ProjectKubernetes: We introduce Kubernetes and get a K8s environment up and running. At this point, everything we do runs in the K8s environment.• Clusters, Nodes and Pods• Start the Kubernetes Cluster• Create/Build a Dockerfile for the Service• Create/Apply K8s Deployment for the ServiceGo Scheduler and Kubernetes Quotas: We introduce applying Quotas to the deployment and discuss the problems that can result when using quotas.• Understanding CPU Quotas• Understanding the Go Scheduler• Adjust GOMAXPROCS to maximize performanceDomain-Driven, Data-Oriented Architecture: We talk about the data-driven, data-oriented architecture. We discuss the design philosophy, guidelines, and semantics of how the three layers of App, Business, and Storage work together.• Architecture Review• Applying and Implementing Firewalls• Data Flow Trust vs Non-Trust• Data Shaping and Data Validation• Developer Isolation with DomainsPrerequisites• It is expected that you will have been coding in Go for several months. • A working Go environment running on the device you will be bringing to class.Recommended Preparation• Please clone the main repo for the class.• Please read the notes in the makefile for installing all the tooling and testing the code before class.• Please email the instructor, Bill Kennedy, for assistance.",
+    "time": "Tue Aug 26, 8:30 AM - 5:30 PM EDT / Tue Aug 26, 9:30 PM - Wed Aug 27, 6:30 AM Your local time   (9 hours)",
+    "location": "Room 408, Level 4, North Javits",
+    "speakers": [
+      "William Kennedy"
+    ],
+    "duration": "(9 hours)"
+  },
+  {
+    "id": "1545650",
+    "title": "Half-Day Workshop: Advanced Go for Experienced Programmers (requires a separate ticket)",
+    "url": "https://www.gophercon.com/agenda/session/1545650",
+    "description": "Level: AdvancedDescription: You’re an experienced programmer with some basic familiarity with Go and you don’t accept LLM-generated code blindly but truly want to understand how to evaluate their output. You’re looking to deepen your understanding of Go, refine your techniques, and pick up new ones through some fun challenges and projects. This is the workshop you’re looking for!This immersive and hands-on workshop equips you with advanced knowledge and practical experience to become a proficient Go developer. Throughout this intensive training, you'll employ both fundamental principles and advanced techniques to build robust and high-performance applications.What a student is expected to learn• Error Handling: There’s more to Go’s error handling than “if err != nil” checks.• Testing: Not just test-writing techniques but writing testable code. Ever wondered how to approach testing concurrent code?• Benchmarking: Take advantage of built-in performance optimization tools.• Generics: Leverage parametric polymorphism to remove boilerplate from your code but also avoid subtle problems in generic code.• Iterators: Learn why they’re useful and some interesting use cases they enable in Go.• HTTP Servers and Clients: Write resilient servers and clients along with techniques such as throttling and back-off.• Dependency Management: Go beyond the standard library to work with third-party packages securely. You’ll publish your own packages, learn to isolate your CI build from repository outages, and more.• Concurrency: Got the basics of goroutines down? Great, we’ll cover advanced synchronization techniques with channels. But wait, there’s more! We’ll leverage techniques such as worker pools, semaphores, and pipelines to take full advantage of Go concurrency.• OpenTelemetry: Learn to build observable Go applications by instrumenting them to emit traces and metrics. If you’re only used to logging, this will be a game-changer for you!Some of what you’ll work on during the workshop• Write a highly concurrent port scanner• Write a load balancer• Work with Large Language Models (LLMs) in your projects by building a Retrieval Augmented Generation (RAG) pipeline• Build and deploy a URL shortener on AWSPrerequisites• Familiarize yourself with Go fundamentals (Go Tour, Go by Example) • Introduce yourself to OpenTelemetry concepts• Introduce yourself to LLMs concepts Recommended Preparation• Have a GitHub account• Have an OpenAI account• Have an AWS account and the awscli configured locally (the free tier fits with the services we will use)• Have a functioning Go environment installed with Go 1.23 or later• Install Ollama and pgvector - see detailed instructions• Use an editor/IDE with Go plugin installed• Please email the instructor, Johnny Boursiquot, for assistance.",
+    "time": "Tue Aug 26, 1:30 PM - 5:30 PM EDT / Wed Aug 27, 2:30 AM - 6:30 AM Your local time   (4 hours)",
+    "location": "Room 406.1/407, Level 4, North Javits",
+    "speakers": [
+      "Johnny Boursiquot"
+    ],
+    "duration": "(4 hours)"
+  },
+  {
+    "id": "1545681",
+    "title": "United Go Meetup 🫱🏾‍🫲🏽",
+    "url": "https://www.gophercon.com/agenda/session/1545681",
+    "description": "This gathering is included in your conference pass, but if you are interested in attending, please register your interest, so we can expect you.    We want to create a space for attendees who identify as BIPOC [Black, Indigenous, Hispanic, or a Person of Color] to come together, socialize, and build community. Following the conclusion of the conference programming, join us!",
+    "time": "Wed Aug 27, 7:00 PM - 9:00 PM EDT / Thu Aug 28, 8:00 AM - 10:00 AM Your local time   (2 hours)",
+    "location": "Venue TBA",
+    "duration": "(2 hours)"
+  },
+  {
+    "id": "1557403",
+    "title": "Go Plays Nice With Your Computer - Race Detection and Freedom!",
+    "url": "https://www.gophercon.com/agenda/session/1557403",
+    "description": "Go is great for writing concurrent programs, but even if you write logically sound programs, you can still give way to data races that are compiler- or hardware-dependent. What can you do to prevent them? How does Go help you detect races, and how do the latest changes to TSAN affect a Go dev? Also, does Einstein have anything to do with this?Talk/Attendee Level: All Attendees",
+    "time": "Thu Aug 28, 2:40 PM - 3:10 PM EDT / Fri Aug 29, 3:40 AM - 4:10 AM Your local time   (30 min)",
+    "location": "The Overview, Room 502, Level 5, North Javits",
+    "speakers": [
+      "Raghav Roy"
+    ],
+    "duration": "(30 min)"
+  },
+  {
+    "id": "1557195",
+    "title": "Women Who Go Meetup 💃🏻",
+    "url": "https://www.gophercon.com/agenda/session/1557195",
+    "description": "This gathering is included in your conference pass. If you are interested in attending, please register your interest, so we can expect you. Calling All Women Who Go! Join us for some light bites and beverages while you get to know your fellow women who go professionally, and personally. ☀️",
+    "time": "Mon Aug 25, 6:00 PM - 8:00 PM EDT / Tue Aug 26, 7:00 AM - 9:00 AM Your local time   (2 hours)",
+    "location": "ART Midtown, Rooftop - 26th Flr, 351 W 38th Street, Arlo Midtown Hotel",
+    "duration": "(2 hours)"
+  },
+  {
+    "id": "1545663",
+    "title": "Welcome Gophers!",
+    "url": "https://www.gophercon.com/agenda/session/1545663",
+    "time": "Wed Aug 27, 9:00 AM - 9:05 AM EDT / 10:00 PM - 10:05 PM Your local time   (5 min)",
+    "location": "The Overview, Room 502, Level 5, North Javits",
+    "duration": "(5 min)"
+  },
+  {
+    "id": "1545664",
+    "title": "Go's Next Frontier",
+    "url": "https://www.gophercon.com/agenda/session/1545664",
+    "description": "Go is more than just a programming language—it's an industry pioneer. From its revolutionary concurrency model to its leadership in open-source security, Go's enduring focus on modern software engineering compels us to not just keep pace with industry advancements but to actively define and lead them.In this keynote, we’ll explore Go's legacy of leadership and how its core design principles make it well-positioned to lead us into the next frontier: the convergence of AI and programming languages. By examining what the Go team is working on now, we’ll also share a vision of Go’s future developer experience and what we’re most excited about in the AI era.Talk/Attendee Level: All Attendees",
+    "time": "Wed Aug 27, 9:05 AM - 9:30 AM EDT / 10:05 PM - 10:30 PM Your local time   (25 min)",
+    "location": "The Overview, Room 502, Level 5, North Javits",
+    "speakers": [
+      "Cameron Balahan"
+    ],
+    "duration": "(25 min)"
+  },
+  {
+    "id": "1545685",
+    "title": "Hallway Track",
+    "url": "https://www.gophercon.com/agenda/session/1545685",
+    "description": "Some say this is where the magic happens at GopherCon! Join your fellow Gophers for some informal socializing and networking between or during sessions, and find out for yourself. 😊",
+    "time": "Thu Aug 28, 8:00 AM - 5:30 PM EDT / Thu Aug 28, 9:00 PM - Fri Aug 29, 6:30 AM Your local time   (9 hours, 30 min)",
+    "location": "The Overview Foyer, Level 5, North Javits",
+    "duration": "(9 hours, 30 min)"
+  },
+  {
+    "id": "1557404",
+    "title": "Go’s Trace Tooling and Concurrency",
+    "url": "https://www.gophercon.com/agenda/session/1557404",
+    "description": "In this talk, Bill will share how to use Go’s trace tooling to examine a Go program's performance. Along the way, he will live-code a Go program, adding different levels of concurrency to see how the performance changes.Throughout this talk, we will cover:• Go’s trace tooling• Goroutines and Concurrency semantics• Performance explorationTalk/Attendee Level: Intermediate",
+    "time": "Thu Aug 28, 4:10 PM - 4:40 PM EDT / Fri Aug 29, 5:10 AM - 5:40 AM Your local time   (30 min)",
+    "location": "The Overview, Room 502, Level 5, North Javits",
+    "speakers": [
+      "William Kennedy"
+    ],
+    "duration": "(30 min)"
+  },
+  {
+    "id": "1557399",
+    "title": "Next-Gen AI Tooling with MCP Servers in Go",
+    "url": "https://www.gophercon.com/agenda/session/1557399",
+    "description": "Step into this new era of AI-powered tools with the Model Context Protocol (MCP) server! This session will teach you how to expose your APIs directly into the IDE of your users so they can interact with your systems using natural language. The talk will center around a step-by-step demo where we'll write an MCP server together using the brand new github.com/modelcontextprotocol/go-sdk library. By the end of this session, you’ll be equipped with the knowledge to build your own MCP server to support your AI-enabled users.Talk/Attendee Level:  All Attendees",
+    "time": "Thu Aug 28, 11:30 AM - 11:55 AM EDT / Fri Aug 29, 12:30 AM - 12:55 AM Your local time   (25 min)",
+    "location": "The Overview, Room 502, Level 5, North Javits",
+    "speakers": [
+      "Katie Hockman"
+    ],
+    "duration": "(25 min)"
+  },
+  {
+    "id": "1557206",
+    "title": "Community Day: TinyGo Hardware Hack Session",
+    "url": "https://www.gophercon.com/agenda/session/1557206",
+    "description": "If you can make it here, you can make it anywhere... by which we mean the Go Hardware Hack Session in New York, New York! 🍎From robots to drones to devices that defy description, what controls them all is our favorite programming language. Add some intelligence, natural or synthetic, and become part of the machine! 🦾You bring your laptop and creativity. We bring our collection of devices in giant flight cases for you to explore. Ever wanted to fly a drone using code? This is your chance! 🛸Program a dancing robot. 🤖 Become a cyborg. The limit is your imagination. We've got some fun surprises in store, so don't miss out on this chance to get hands-on with our hardware!",
+    "time": "Tue Aug 26, 10:00 AM - 4:00 PM EDT / Tue Aug 26, 11:00 PM - Wed Aug 27, 5:00 AM Your local time   (6 hours)",
+    "location": "Room 409/411, Level 4, North Javits",
+    "duration": "(6 hours)"
+  },
+  {
+    "id": "1545667",
+    "title": "Morning Beverage Break",
+    "url": "https://www.gophercon.com/agenda/session/1545667",
+    "description": "Freshly Brewed Regular and Decaffeinated CoffeeHot Water with Assorted TeasServed with Soy Milk, 2%, Skim, and Half \u0026 Half, as well as assorted sweetenersFruit-Infused Still Water",
+    "time": "Wed Aug 27, 10:30 AM - 11:15 AM EDT / Wed Aug 27, 11:30 PM - Thu Aug 28, 12:15 AM Your local time   (45 min)",
+    "location": "The Overview, Rm 503 - 504, Level 5, North Javits",
+    "duration": "(45 min)"
+  },
+  {
+    "id": "1557392",
+    "title": "My Protobuf Module is Faster than Yours (Because I Cheated)",
+    "url": "https://www.gophercon.com/agenda/session/1557392",
+    "description": "When handling over 2 trillion messages every day, every ounce of performance matters. This talk outlines the (over) optimizations that went into making our Go protobuf module as efficient as possible.Talk/Attendee Level: Intermediate",
+    "time": "Wed Aug 27, 11:45 AM - 12:10 PM EDT / Thu Aug 28, 12:45 AM - 1:10 AM Your local time   (25 min)",
+    "location": "The Overview, Room 502, Level 5, North Javits",
+    "speakers": [
+      "Tom Lyons"
+    ],
+    "duration": "(25 min)"
+  },
+  {
+    "id": "1557348",
+    "title": "Afternoon Beverage Break",
+    "url": "https://www.gophercon.com/agenda/session/1557348",
+    "description": "Assorted Sodas and Sparkling Waters",
+    "time": "Wed Aug 27, 3:20 PM - 4:00 PM EDT / Thu Aug 28, 4:20 AM - 5:00 AM Your local time   (40 min)",
+    "location": "The Overview, Rm 503 - 504, Level 5, North Javits",
+    "duration": "(40 min)"
+  },
+  {
+    "id": "1545653",
+    "title": "Morning Coffee Break",
+    "url": "https://www.gophercon.com/agenda/session/1545653",
+    "description": "Freshly Brewed Regular and Decaffeinated CoffeeHot Water with Assorted TeasServed with Soy Milk, 2%, Skim, and Half \u0026 Half, as well as assorted sweeteners",
+    "time": "Tue Aug 26, 7:00 AM - 11:00 AM EDT / Tue Aug 26, 8:00 PM - Wed Aug 27, 12:00 AM Your local time   (4 hours)",
+    "location": "Foyer, Level 4, North Javits",
+    "duration": "(4 hours)"
+  },
+  {
+    "id": "1557199",
+    "title": "Grab n' Go Lunch",
+    "url": "https://www.gophercon.com/agenda/session/1557199",
+    "description": "Menu to be announced - vegan, vegetarian, gluten-free, dairy-free, and nut-free diets will be accommodated",
+    "time": "Tue Aug 26, 12:00 PM - 1:30 PM EDT / Wed Aug 27, 1:00 AM - 2:30 AM Your local time   (1 hour, 30 min)",
+    "location": "Foyer, Level 4, North Javits",
+    "duration": "(1 hour, 30 min)"
+  },
+  {
+    "id": "1545671",
+    "title": "Lightning Talks",
+    "url": "https://www.gophercon.com/agenda/session/1545671",
+    "description": "Programming To Be Announced in July",
+    "time": "Wed Aug 27, 1:40 PM - 2:25 PM EDT / Thu Aug 28, 2:40 AM - 3:25 AM Your local time   (45 min)",
+    "location": "The Overview, Room 502, Level 5, North Javits",
+    "duration": "(45 min)"
+  },
+  {
+    "id": "1545674",
+    "title": "Afternoon Beverage Break",
+    "url": "https://www.gophercon.com/agenda/session/1545674",
+    "description": "Assorted Sodas and Sparkling Waters",
+    "time": "Thu Aug 28, 3:10 PM - 3:40 PM EDT / Fri Aug 29, 4:10 AM - 4:40 AM Your local time   (30 min)",
+    "location": "The Overview, Rm 503 - 504, Level 5, North Javits",
+    "duration": "(30 min)"
+  },
+  {
+    "id": "1557401",
+    "title": "Advancing Go Garbage Collection with Green Tea",
+    "url": "https://www.gophercon.com/agenda/session/1557401",
+    "description": "Memory latency and bandwidth are becoming increasingly constrained, and these trends are at odds with most of today's garbage collection algorithms, including Go's. In this talk, Michael will dive deep into Green Tea, a new parallel mark algorithm to accelerate Go's garbage collector through improved cache locality and the use of modern SIMD hardware. The talk will also cover what this new algorithm means for the performance of Go programs, along with suggestions on how advanced Gophers can capitalize on these improvements.Talk/Attendee Level: Advanced",
+    "time": "Thu Aug 28, 3:40 PM - 4:05 PM EDT / Fri Aug 29, 4:40 AM - 5:05 AM Your local time   (25 min)",
+    "location": "The Overview, Room 502, Level 5, North Javits",
+    "speakers": [
+      "Michael Knyszek"
+    ],
+    "duration": "(25 min)"
+  },
+  {
+    "id": "1590663",
+    "title": "Half-Day Workshop: Building and Deploying AI Agents with Go (requires a separate ticket)",
+    "url": "https://www.gophercon.com/agenda/session/1590663",
+    "description": "Level: AdvancedDescription: This hands-on workshop is for experienced Go developers looking to build, deploy, and operate agentic AI workflows in production. We’ll cover AI-driven automation, multi-step workflows, and asynchronous task handling, ensuring scalability, observability, and security. You’ll learn how to efficiently call LLMs, manage function execution, maintain workflow state, and optimize performance. While we’ll primarily use AWS Bedrock and Ollama, the techniques apply to various AI platforms and self-hosted solutions. This workshop is code-heavy, featuring real-world examples and hands-on exercises. By the end, you’ll have fully functioning AI agents running in Go that can reason, interact with APIs, and operate autonomously in production environments.What a student is expected to learn• Introduction to AI Agents \u0026 WorkflowsWhen RAG is not enoughDefining agents, agentic workflows, and the use cases they’re suited forConsiderations for LLMs, memory, function execution, and state management• Calling LLMs \u0026 Managing Function ExecutionInterfacing with cloud vendors (AWS in this case): authentication, request formatting, streaming vs. batch responsesOptimizing AI requests for performance and costIntegrating external sources of information (Knowledge Bases, S3, PostgreSQL) in response generation• Implementing Agentic Workflows with GoUsing AI for multi-step automation, function calling, and decision-makingBackground task orchestration in Go with AWS SQS, DynamoDB, Lambda, and other services• Deploying \u0026 ScalingScaling considerations: caching, rate limiting, and cost efficiencyObservability with logging, tracing, and monitoring AI usagePrerequisites• Be comfortable with Go (Beginner/Intermediate level is fine)• Introduce yourself to OpenTelemetry concepts• Introduce yourself to LLMs concepts ahead of timeRecommended Preparation• Have a GitHub account• Have an AWS account and the awscli configured locally (the free tier fits with the services we will use)• Install Docker • Have a functioning Go environment installed with Go 1.24 or later• Install Ollama and pgvector - see detailed instructions• Use an editor/IDE with Go plugin installed• Please email the instructor, Johnny Boursiquot, for assistance.",
+    "time": "Tue Aug 26, 8:30 AM - 12:30 PM EDT / Tue Aug 26, 9:30 PM - Wed Aug 27, 1:30 AM Your local time   (4 hours)",
+    "location": "Room 406.1/407, Level 4, North Javits",
+    "speakers": [
+      "Johnny Boursiquot"
+    ],
+    "duration": "(4 hours)"
+  },
+  {
+    "id": "1572365",
+    "title": "Challenge Series: How Deep Does the Code Go?",
+    "url": "https://www.gophercon.com/agenda/session/1572365",
+    "description": "This activity is included in your conference pass. Interested in participating? Contestant registration is now open!Are you ready to be transported to a digital realm so convincing that you may never want to leave? Or can you? Perhaps you’ll be trapped inside this simulated reality as the machines harvest your human bioelectric energy. Choose the red pill and you may just discover truths so shocking that they’ll leave you thinking... “woah!”.This year’s theme unfolds inside The Matrix and the world portrayed within. As the war rages on, join the rebellion and discover who your adversaries are while forging new allies. As you unlock your potential with each new achievement, you may manage to escape the bonds of this simulated world and help liberate your fellow humans while qualifying for a part of the lucrative bounty of $10k in prizes. Along the way, you will compete against programs and hackers alike on your path to becoming… The One!With a combination of updated puzzles as well as brand new ones, the Challenge Series still stands to teach competitors -- from the Neophyte to the most Oracular in their skills and studies. Follow the white rabbit and discover how deep the code goes! Keep an eye out in the #gophercon and #gophercon-cs channels in Gophers Slack for more updates up to and through the conference.",
+    "time": "Wed Aug 27, 8:00 AM - 5:00 PM EDT / Wed Aug 27, 9:00 PM - Thu Aug 28, 6:00 AM Your local time   (9 hours)",
+    "location": "The Overview Foyer, Level 5, North Javits",
+    "speakers": [
+      "Neil Primmer",
+      "Benji Vesterby"
+    ],
+    "duration": "(9 hours)"
+  },
+  {
+    "id": "1557386",
+    "title": "Demystifying AI Agents: A New Primitive for Flow Control",
+    "url": "https://www.gophercon.com/agenda/session/1557386",
+    "description": "AI agents are everywhere—praised by some as the \"end of software\", dismissed by others as snake oil. But what’s the real substance behind the hype, and why should Go developers care? In this talk, we’ll look past the buzzwords and focus on the underlying primitives, why they matter, and how to use them in practice.We’ll also discuss the fragmented mess of language-specific \"agent frameworks\" and the opportunity to build cross-language standards at the runtime layer, with simpler primitives and richer ecosystems of reusable components.We will wrap up with a live coding session, where I will build a simple AI agent live on stage, and equip you to do the same on your own. The goal is for the audience to walk away thinking, \"This isn't rocket science, I can do it too!\"Talk/Attendee Level: All Attendees",
+    "time": "Wed Aug 27, 9:35 AM - 10:00 AM EDT / 10:35 PM - 11:00 PM Your local time   (25 min)",
+    "location": "The Overview, Room 502, Level 5, North Javits",
+    "speakers": [
+      "Solomon Hykes"
+    ],
+    "duration": "(25 min)"
+  },
+  {
+    "id": "1557390",
+    "title": "Building a Decentralized Social Media App with Go and ATProto",
+    "url": "https://www.gophercon.com/agenda/session/1557390",
+    "description": "Bluesky is an exciting new decentralized social media platform, powered by the ATProtocol (ATProto). What makes ATProto so revolutionary, and how can Go developers leverage it to build scalable social apps? In this talk, we’ll explore ATProto's core components and their interactions. Then, we’ll put theory into practice by building an AppView—a key part of the ecosystem—using Go. Our project will be a photo-sharing app with likes and comments, demonstrating how Go developers can contribute to the growing ATProto ecosystem. By the end, you'll have a strong foundation in ATProto and a roadmap for building your own decentralized social applications.Talk/Attendee Level: All Attendees",
+    "time": "Wed Aug 27, 12:15 PM - 12:40 PM EDT / Thu Aug 28, 1:15 AM - 1:40 AM Your local time   (25 min)",
+    "location": "The Overview, Room 502, Level 5, North Javits",
+    "speakers": [
+      "Gautam Dey"
+    ],
+    "duration": "(25 min)"
+  },
+  {
+    "id": "1557389",
+    "title": "Plowing Through Data: Building Flexible Pipelines with Go",
+    "url": "https://www.gophercon.com/agenda/session/1557389",
+    "description": "In modern agriculture, data flows in from everywhere—fields, labs, applications—and needs to be processed, transformed, and delivered to a wide range of destinations. Using Go’s parametric polymorphism, we have been able to build quickly with scalability and maintainability. This talk will cover practical insights into building flexible pipelines with Go—and maybe even inspire you to plow through your own data challenges with a bit more ease.Talk/Attendee Level: All Attendees",
+    "time": "Wed Aug 27, 2:55 PM - 3:20 PM EDT / Thu Aug 28, 3:55 AM - 4:20 AM Your local time   (25 min)",
+    "location": "The Overview, Room 502, Level 5, North Javits",
+    "speakers": [
+      "Mindy Ratcliff"
+    ],
+    "duration": "(25 min)"
+  },
+  {
+    "id": "1557397",
+    "title": "Invisible Insight: Strategies for Auto-Instrumenting Go Applications Without Code Changes",
+    "url": "https://www.gophercon.com/agenda/session/1557397",
+    "description": "Instrumenting Go applications without modifying source code has long been a challenge due to the language’s static nature and lack of dynamic code modification capabilities. This talk explores and compares ready-to-use, open-source solutions that enable auto-instrumentation at compile-time and runtime, analyzing their trade-offs in performance, stability, and security. We will cover leading approaches, including eBPF-based solutions, compile-time instrumentation, and runtime techniques such as shared library injection and binary trampoline methods, to assess their feasibility and limitations.A major focus will be on how community collaboration in OpenTelemetry has made auto-instrumentation a pragmatic reality for Go applications. This session with explore ongoing Go runtime developments that could enable new patterns for auto-instrumentation, including improvements in function call interception, runtime hooks, and tracing APIs (golang/go#63185).Attendees will gain benchmark-driven insights into these techniques, helping them evaluate the right auto-instrumentation approach for their production environments by balancing observability, performance overhead, and ease of deployment.Whether you’re an SRE, performance engineer, or Go developer, this talk will provide actionable insights and production-ready open-source tools to integrate into your Go applications today.Talk/Attendee Level: Intermediate",
+    "time": "Thu Aug 28, 10:05 AM - 10:30 AM EDT / 11:05 PM - 11:30 PM Your local time   (25 min)",
+    "location": "The Overview, Room 502, Level 5, North Javits",
+    "speakers": [
+      "Hannah Kim"
+    ],
+    "duration": "(25 min)"
+  },
+  {
+    "id": "1557347",
+    "title": "Lunch Service",
+    "url": "https://www.gophercon.com/agenda/session/1557347",
+    "description": "Menu to be announced - vegan, vegetarian, gluten-free, dairy-free, and nut-free diets will be accommodated",
+    "time": "Thu Aug 28, 12:25 PM - 2:10 PM EDT / Fri Aug 29, 1:25 AM - 3:10 AM Your local time   (1 hour, 45 min)",
+    "location": "The Overview, Rm 503 - 504, Level 5, North Javits",
+    "duration": "(1 hour, 45 min)"
+  },
+  {
+    "id": "1594224",
+    "title": "Full-Day Workshop: Ultimate Go (requires a separate ticket)",
+    "url": "https://www.gophercon.com/agenda/session/1594224",
+    "description": "Level: Beginner/IntermediateDescription: This class teaches how to write better, more idiomatic, and performant code in Go with a focus on micro-level engineering decisions. To start the class, the instructor will focus on Go internals that are critical to understanding the core tradeoffs the language makes for readability, simplicity, and performance. The class will build foundational knowledge that will give you a deeper understanding of data semantics, decoupling, concurrency, and tooling. This course is perfect for developers who are just starting out, as well as those with years of Go experience. By the end of this full-day workshop, everyone will be writing better code!What a student is expected to learn• Programming versus Engineering• Data Semantics• Escape Analysis• Interfaces and Polymorphism• Effective Generics• Concurrency Patterns• Profiling and TracingPrerequisites• It is expected that you have programmed in Go, even at the basic level, and are familiar with the command line. • A working Go environment running on the device you will be bringing to class.Recommended Preparation• Please have the Go SDK installed (download from https://go.dev/dl/ or install with your OS package manager).• Use an editor/IDE with Go plugin installed, such as VSCode or GoLand.• Please email the instructor, Miki Tebeka, for assistance.",
+    "time": "Tue Aug 26, 8:30 AM - 5:30 PM EDT / Tue Aug 26, 9:30 PM - Wed Aug 27, 6:30 AM Your local time   (9 hours)",
+    "location": "Room 412, Level 4, North Javits",
+    "speakers": [
+      "Miki Tebeka"
+    ],
+    "duration": "(9 hours)"
+  },
+  {
+    "id": "1557343",
+    "title": "GopherCon Exhibition",
+    "url": "https://www.gophercon.com/agenda/session/1557343",
+    "time": "Thu Aug 28, 8:00 AM - 4:00 PM EDT / Thu Aug 28, 9:00 PM - Fri Aug 29, 5:00 AM Your local time   (8 hours)",
+    "location": "The Overview, Rm 503 - 504, Level 5, North Javits",
+    "duration": "(8 hours)"
+  },
+  {
+    "id": "1545641",
+    "title": "Challenge Series: How Deep Does the Code Go?",
+    "url": "https://www.gophercon.com/agenda/session/1545641",
+    "description": "This activity is included in your conference pass. Interested in participating? Contestant registration is now open!Are you ready to be transported to a digital realm so convincing that you may never want to leave? Or can you? Perhaps you’ll be trapped inside this simulated reality as the machines harvest your human bioelectric energy. Choose the red pill and you may just discover truths so shocking that they’ll leave you thinking... “woah!”.This year’s theme unfolds inside The Matrix and the world portrayed within. As the war rages on, join the rebellion and discover who your adversaries are while forging new allies. As you unlock your potential with each new achievement, you may manage to escape the bonds of this simulated world and help liberate your fellow humans while qualifying for a part of the lucrative bounty of $10k in prizes. Along the way, you will compete against programs and hackers alike on your path to becoming… The One!With a combination of updated puzzles as well as brand new ones, the Challenge Series still stands to teach competitors -- from the Neophyte to the most Oracular in their skills and studies. Follow the white rabbit and discover how deep the code goes! Keep an eye out in the #gophercon and #gophercon-cs channels in Gophers Slack for more updates up to and through the conference.",
+    "time": "Tue Aug 26, 9:00 AM - 5:00 PM EDT / Tue Aug 26, 10:00 PM - Wed Aug 27, 6:00 AM Your local time   (8 hours)",
+    "location": "Room 404/405, Level 4, North Javits",
+    "speakers": [
+      "Neil Primmer",
+      "Benji Vesterby"
+    ],
+    "duration": "(8 hours)"
+  },
+  {
+    "id": "1557394",
+    "title": "Goroutines and Cells: Lessons in Goal-Directed Systems",
+    "url": "https://www.gophercon.com/agenda/session/1557394",
+    "description": "This talk explores a new way to approach concurrency in Go by drawing inspiration from bioelectric signaling in cells. It contrasts how biological systems achieve scalable, decentralized coordination with traditional concurrency patterns such as worker pools and fixed-rate limiters, which often struggle to adapt to dynamic workloads.Biological systems use graded communication, rhythmic synchronization, and localized interactions to coordinate without centralized control. By applying these principles to Go concurrency, developers can design adaptive, nature-inspired systems that improve efficiency, fault tolerance, and self-organization.Through conceptual models and real-world analogies, this talk will illustrate:How graded signaling enables dynamic resource allocation, reducing bottlenecks in goroutine coordinationHow rhythmic synchronization helps orchestrate periodic tasks more efficiently than independent timersHow decentralized interactions lead to emergent consensus without centralized controlAttendees will leave with new mental models for designing concurrent systems, gaining insights into how nature-inspired approaches can make Go applications more resilient and scalable.Talk/Attendee Level: Intermediate/Advanced",
+    "time": "Wed Aug 27, 10:05 AM - 10:30 AM EDT / 11:05 PM - 11:30 PM Your local time   (25 min)",
+    "location": "The Overview, Room 502, Level 5, North Javits",
+    "speakers": [
+      "Carlisia Campos"
+    ],
+    "duration": "(25 min)"
+  },
+  {
+    "id": "1572366",
+    "title": "Challenge Series: How Deep Does the Code Go?",
+    "url": "https://www.gophercon.com/agenda/session/1572366",
+    "description": "This activity is included in your conference pass. Interested in participating? Contestant registration is now open!Are you ready to be transported to a digital realm so convincing that you may never want to leave? Or can you? Perhaps you’ll be trapped inside this simulated reality as the machines harvest your human bioelectric energy. Choose the red pill and you may just discover truths so shocking that they’ll leave you thinking... “woah!”.This year’s theme unfolds inside The Matrix and the world portrayed within. As the war rages on, join the rebellion and discover who your adversaries are while forging new allies. As you unlock your potential with each new achievement, you may manage to escape the bonds of this simulated world and help liberate your fellow humans while qualifying for a part of the lucrative bounty of $10k in prizes. Along the way, you will compete against programs and hackers alike on your path to becoming… The One!With a combination of updated puzzles as well as brand new ones, the Challenge Series still stands to teach competitors -- from the Neophyte to the most Oracular in their skills and studies. Follow the white rabbit and discover how deep the code goes! Keep an eye out in the #gophercon and #gophercon-cs channels in Gophers Slack for more updates up to and through the conference.",
+    "time": "Thu Aug 28, 8:00 AM - 4:00 PM EDT / Thu Aug 28, 9:00 PM - Fri Aug 29, 5:00 AM Your local time   (8 hours)",
+    "location": "The Overview Foyer, Level 5, North Javits",
+    "speakers": [
+      "Neil Primmer",
+      "Benji Vesterby"
+    ],
+    "duration": "(8 hours)"
+  },
+  {
+    "id": "1545687",
+    "title": "Welcome Back Gophers!",
+    "url": "https://www.gophercon.com/agenda/session/1545687",
+    "time": "Thu Aug 28, 9:00 AM - 9:05 AM EDT / 10:00 PM - 10:05 PM Your local time   (5 min)",
+    "location": "The Overview, Room 502, Level 5, North Javits",
+    "duration": "(5 min)"
+  },
+  {
+    "id": "1557395",
+    "title": "An Operating System in Go",
+    "url": "https://www.gophercon.com/agenda/session/1557395",
+    "description": "We’ll answer the age-old question—“Is Go a systems programming language?”—by showcasing TinyGo’s rise as the unexpected contender in embedded systems, upending assumptions about a space long thought settled.Talk/Attendee Level: All Attendees",
+    "time": "Thu Aug 28, 9:05 AM - 9:30 AM EDT / 10:05 PM - 10:30 PM Your local time   (25 min)",
+    "location": "The Overview, Room 502, Level 5, North Javits",
+    "speakers": [
+      "Patricio Whittingslow"
+    ],
+    "duration": "(25 min)"
+  },
+  {
+    "id": "1557402",
+    "title": "Go Faster: Integrating CUDA in Go for GPU Acceleration",
+    "url": "https://www.gophercon.com/agenda/session/1557402",
+    "description": "In the era of machine learning and artificial intelligence, GPU acceleration has become indispensable for handling compute-intensive tasks efficiently. This talk explores how to integrate CUDA - NVIDIA's powerful parallel computing platform - with Go, to leverage GPU power in your applications. We'll start with an introduction to GPU computing and the CUDA programming model, explaining why and when to use GPU acceleration, particularly in the context of AI and ML. Finally, we'll guide you through setting up your development environment to work with Go and CUDA.Using Go's cgo, we will demonstrate:How to call CUDA functions from Go;Managing memory between the CPU and GPU;Debugging and performance monitoring.We will also cover common patterns that will help your applications run smoothly. Through practical examples, you will learn how to implement and optimize GPU-accelerated computations in Go. By the end of this talk, you'll be equipped to start incorporating GPU acceleration into your Go projects, achieving significant performance improvements for compute-intensive tasks, including those in machine learning and artificial intelligence.Talk/Attendee Level: Advanced",
+    "time": "Thu Aug 28, 2:10 PM - 2:40 PM EDT / Fri Aug 29, 3:10 AM - 3:40 AM Your local time   (30 min)",
+    "location": "The Overview, Room 502, Level 5, North Javits",
+    "speakers": [
+      "Sam Burns"
+    ],
+    "duration": "(30 min)"
+  },
+  {
+    "id": "1557388",
+    "title": "The Code You Reviewed is Not the Code You Built",
+    "url": "https://www.gophercon.com/agenda/session/1557388",
+    "description": "Ken Thompson's \"Reflections on trusting trust\" highlights the potential disparity between source code and the final built product, cautioning developers to question their trust model right down to the compiler itself. This principle is crucial when dealing with intricate trust models, as code reviews alone can not provide sufficient assurance in the behaviors of the build artifact.Earlier this year, a malicious typosquat of the boltdb package was identified on the Go module proxy. There were several things of note about this typosquat, most prominent being the way that the attackers modified the git tags to obfuscate the malicious behavior. Even a security-minded developer who reviewed the code present on GitHub could have been tricked into using this package. In a sense, there were two levels of deception used to ship this code - the typosquat itself and the decoy code present on GitHub. This attack exposes the real-world practicality of deceiving traditional source reviews, threatening the foundation of open source consumption.Talk/Attendee Level: All attendees",
+    "time": "Wed Aug 27, 11:15 AM - 11:40 AM EDT / Thu Aug 28, 12:15 AM - 12:40 AM Your local time   (25 min)",
+    "location": "The Overview, Room 502, Level 5, North Javits",
+    "speakers": [
+      "Jess McClintock"
+    ],
+    "duration": "(25 min)"
+  },
+  {
+    "id": "1557345",
+    "title": "Morning Beverage Break",
+    "url": "https://www.gophercon.com/agenda/session/1557345",
+    "description": "Freshly Brewed Regular and Decaffeinated CoffeeHot Water with Assorted TeasServed with Soy Milk, 2%, Skim, and Half \u0026 Half, as well as assorted sweetenersFruit-Infused Still Water",
+    "time": "Thu Aug 28, 10:30 AM - 11:00 AM EDT / Thu Aug 28, 11:30 PM - Fri Aug 29, 12:00 AM Your local time   (30 min)",
+    "location": "The Overview, Rm 503 - 504, Level 5, North Javits",
+    "duration": "(30 min)"
+  },
+  {
+    "id": "1557398",
+    "title": "The Go Cryptography State of the Union",
+    "url": "https://www.gophercon.com/agenda/session/1557398",
+    "description": "I know I say this every year, but Go 1.24 has been an exciting cycle for Go cryptography.A new maintainer, post-quantum crypto, native FIPS 140, a crypto/rsa rewrite, moar systematic testing, x/crypto packages in the standard library, faster AES-CTR, more testable ECDSA... even a rare backwards compatibility break: rejecting RSA keys so small they are trivially broken. And then an external audit, and Encrypted Client Hello, and crypto/rand vDSO that never fails, and more.This is your yearly appointment to learn about the progress of Go’s cryptography libraries and the techniques we use to maintain them.Talk/Attendee Level: All Attendees",
+    "time": "Thu Aug 28, 11:00 AM - 11:25 AM EDT / Fri Aug 29, 12:00 AM - 12:25 AM Your local time   (25 min)",
+    "location": "The Overview, Room 502, Level 5, North Javits",
+    "speakers": [
+      "Filippo Valsorda"
+    ],
+    "duration": "(25 min)"
+  },
+  {
+    "id": "1557216",
+    "title": "Community Day: Meet the Go Team",
+    "url": "https://www.gophercon.com/agenda/session/1557216",
+    "description": "Members of the Go Team look forward to mingling with and answering questions from the community. Join us!",
+    "time": "Tue Aug 26, 1:30 PM - 4:30 PM EDT / Wed Aug 27, 2:30 AM - 5:30 AM Your local time   (3 hours)",
+    "location": "Room 413, Level 4, North Javits",
+    "duration": "(3 hours)"
+  },
+  {
+    "id": "1545655",
+    "title": "Meetup Organizers (past, present, and future) Unite! 💪",
+    "url": "https://www.gophercon.com/agenda/session/1545655",
+    "description": "This gathering is included in your conference pass. If you are interested in attending, please register your interest, so we can expect you.Are you a meetup organizer or someone who has been interested in starting/reviving a meetup in your area? Join us for a casual gathering where we'll exchange tips, tricks, best practices, and maybe a few war stories too! 😉",
+    "time": "Tue Aug 26, 5:00 PM - 7:00 PM EDT / Wed Aug 27, 6:00 AM - 8:00 AM Your local time   (2 hours)",
+    "location": "Burgerology Midtown, 320 W 36th Street, Crowne Plaza HY36 Midtown Manhattan",
+    "duration": "(2 hours)"
+  },
+  {
+    "id": "1545679",
+    "title": "Asian Alliance Meetup 🌸",
+    "url": "https://www.gophercon.com/agenda/session/1545679",
+    "description": "This gathering is included in your conference pass, but if you are interested in attending, please register your interest, so we can expect you.    Do you hail from the Asian continent? Join us and connect with the Asian community of Gophers. Let’s get to know each other, share our experiences, and forge paths to help empower each other in our community! 💚",
+    "time": "Wed Aug 27, 7:00 PM - 9:00 PM EDT / Thu Aug 28, 8:00 AM - 10:00 AM Your local time   (2 hours)",
+    "location": "Venue TBA",
+    "duration": "(2 hours)"
+  },
+  {
+    "id": "1557342",
+    "title": "Coffee with the Exhibitors",
+    "url": "https://www.gophercon.com/agenda/session/1557342",
+    "description": "Freshly Brewed Regular and Decaffeinated CoffeeHot Water with Assorted TeasServed with Soy Milk, 2%, Skim, and Half \u0026 Half, as well as assorted sweeteners",
+    "time": "Thu Aug 28, 8:00 AM - 10:00 AM EDT / 9:00 PM - 11:00 PM Your local time   (2 hours)",
+    "location": "The Overview, Rm 503 - 504, Level 5, North Javits",
+    "duration": "(2 hours)"
+  },
+  {
+    "id": "1545686",
+    "title": "Attendee Services \u0026 Gopher Gear Shop",
+    "url": "https://www.gophercon.com/agenda/session/1545686",
+    "time": "Thu Aug 28, 8:00 AM - 6:00 PM EDT / Thu Aug 28, 9:00 PM - Fri Aug 29, 7:00 AM Your local time   (10 hours)",
+    "location": "The Overview Foyer, Level 5, North Javits",
+    "duration": "(10 hours)"
+  },
+  {
+    "id": "1545661",
+    "title": "GopherCon Exhibition",
+    "url": "https://www.gophercon.com/agenda/session/1545661",
+    "time": "Wed Aug 27, 8:00 AM - 5:45 PM EDT / Wed Aug 27, 9:00 PM - Thu Aug 28, 6:45 AM Your local time   (9 hours, 45 min)",
+    "location": "The Overview, Rm 503 - 504, Level 5, North Javits",
+    "duration": "(9 hours, 45 min)"
+  },
+  {
+    "id": "1557387",
+    "title": "Analysis and Transformation Tools for Go Codebase Modernization",
+    "url": "https://www.gophercon.com/agenda/session/1557387",
+    "description": "In this talk, Alan will report recent progress in analysis and refactoring tools for Go. The talk will cover:The principles of the Go analysis framework, which powers batch tools like cmd/vet and interactive tools like gopls, and enables problems to be precisely reported and fixed in real time;a technical deep dive into some data structures that make analyzers both more efficient to run and more convenient to write;a discussion of recent tools to \"modernize\" your codebase so that it uses the most efficient, clear, and idiomatic features of the newest Go releases; anda demonstration of how our algorithm for precise inlining of function calls is at the heart of a powerful tool for codebase migration.Talk/Attendee Level: All Attendees",
+    "time": "Wed Aug 27, 2:25 PM - 2:50 PM EDT / Thu Aug 28, 3:25 AM - 3:50 AM Your local time   (25 min)",
+    "location": "The Overview, Room 502, Level 5, North Javits",
+    "speakers": [
+      "Alan A. Donovan"
+    ],
+    "duration": "(25 min)"
+  },
+  {
+    "id": "1557393",
+    "title": "Scaling LLMs with Go: Production Patterns for Handling Millions of AI Requests",
+    "url": "https://www.gophercon.com/agenda/session/1557393",
+    "description": "At Assembled, we serve tens of millions of LLM requests, powering customer support AI for companies like Canva, Etsy, and Patreon. While most teams build LLM infrastructure in Python, we found Go's type system, concurrency features, and interfaces solve many production challenges more elegantly.This talk shares concrete patterns from our experience deploying Go-based LLM systems at scale: from handling structured outputs to parallel RAG pipelines. You'll learn practical approaches for building performant, reliable AI applications leveraging Go's strengths.Talk/Attendee Level: All Attendees",
+    "time": "Wed Aug 27, 4:30 PM - 4:55 PM EDT / Thu Aug 28, 5:30 AM - 5:55 AM Your local time   (25 min)",
+    "location": "The Overview, Room 502, Level 5, North Javits",
+    "speakers": [
+      "John Wang"
+    ],
+    "duration": "(25 min)"
+  },
+  {
+    "id": "1647415",
+    "title": "Understanding Escape Analysis to Speed Up Your Code",
+    "url": "https://www.gophercon.com/agenda/session/1647415",
+    "description": "If you are interested in the performance of your code, it is important to understand what makes the Go compiler decide to force an expensive heap allocation of your data instead of storing it much more cheaply on the stack. The portion of the compiler that makes this decision is called “escape analysis”. In this session, we will build up an intuition for how escape analysis sees the world and share practical tips for how you can use that understanding to speed up your code.Two years ago, someone asked a question in Gopher Slack that led me to take my first real peek at the escape analysis code in the compiler. That led me down a rabbit hole, which started with just commenting out code to see what would happen, and eventually led to me contributing some compiler improvements for escape analysis. I’ll share what I learned along the way so you can more easily recognize and avoid unnecessary heap allocations that can dramatically impact performance.Talk/Attendee Level: Intermediate",
+    "time": "Wed Aug 27, 4:00 PM - 4:25 PM EDT / Thu Aug 28, 5:00 AM - 5:25 AM Your local time   (25 min)",
+    "location": "The Overview, Room 502, Level 5, North Javits",
+    "speakers": [
+      "PJ Malloy (aka @thepudds)"
+    ],
+    "duration": "(25 min)"
+  },
+  {
+    "id": "1545646",
+    "title": "Community Roundtables",
+    "url": "https://www.gophercon.com/agenda/session/1545646",
+    "description": "This is your opportunity to meet and collaborate with other community members who share an interest in the same topics and open-source projects as you. Whiteboards will have a list of numbers that correspond with each table. Choose an open table, write your topic next to the corresponding number on the whiteboard, and gather with your fellow Gophers in an informal, welcoming, and open environment!",
+    "time": "Tue Aug 26, 10:00 AM - 4:00 PM EDT / Tue Aug 26, 11:00 PM - Wed Aug 27, 5:00 AM Your local time   (6 hours)",
+    "location": "Room 404/405, Level 4, North Javits",
+    "duration": "(6 hours)"
+  },
+  {
+    "id": "1545651",
+    "title": "Half-Day Workshop: Advanced Testing in Go Programs (requires a separate ticket)",
+    "url": "https://www.gophercon.com/agenda/session/1545651",
+    "description": "Level: IntermediateDescription: Go has a heavy emphasis on testing.  While basic unit tests and table-driven tests are usually the first thing we learn, we shouldn’t stop there.  This course is designed to take developers with a basic understanding of testing in Go and show them how to test more complicated pieces of code.What a student is expected to learn• Decoupling code and creating “stubs” so you can create unit tests without the need for firing up external dependencies (within or outside of their project).• Creating unit and integration tests for HTTP services.• How to test asynchronous code.• An in-depth look at how to properly architect code using the IO primitives in Go and how to test that code.• Students will also learn about several powerful (yet not widely known) test tools that ship with Go and how to use them.Some of what you’ll work on during the workshop• Taking pre-written programs and learning how to properly write advanced tests for them.• How to apply table-driven testing to more advanced tests for better code reuse.• Identifying tightly coupled code and being able to decouple it for testing and reuse.Prerequisites• Attend Intro to Go for Experienced Programmers, if you need a refresher before attending this course • Familiarize yourself with Go fundamentals (Go Tour, Go by Example) • Have familiarity with basic unit and table-driven testing in GoRecommended Preparation• Have a GitHub account• Have a functioning Go environment installed with Go 1.23 or later• Use an editor/IDE with Go plugin installed• Computer should be capable of modern software development, such as access to install and run binaries, install a code editor, etc.• Please email the instructor, Cory LaNou, for assistance.",
+    "time": "Tue Aug 26, 1:30 PM - 5:30 PM EDT / Wed Aug 27, 2:30 AM - 6:30 AM Your local time   (4 hours)",
+    "location": "Room 406.2, Level 4, North Javits",
+    "speakers": [
+      "Cory LaNou"
+    ],
+    "duration": "(4 hours)"
+  },
+  {
+    "id": "1545657",
+    "title": "RainGo Connection Meetup🌈",
+    "url": "https://www.gophercon.com/agenda/session/1545657",
+    "description": "This gathering is included in your conference pass. If you are interested in attending, please register your interest, so we can expect you.    Join us for an unforgettable evening of camaraderie and connection with like-minded individuals in the LGBTQIA+ community. Following the conclusion of the conference programming, we invite you to be a part of the RainGo Connection! Whether you’re a member of the LGBTQIA+ community or an ally, be prepared to forge new friendships and engage in vibrant conversations with fellow community members.",
+    "time": "Tue Aug 26, 8:00 PM - 10:00 PM EDT / Wed Aug 27, 9:00 AM - 11:00 AM Your local time   (2 hours)",
+    "location": "The Dickens, 783 8th Avenue",
+    "duration": "(2 hours)"
+  },
+  {
+    "id": "1557396",
+    "title": "Profiling Request Latency with Critical Path Analysis",
+    "url": "https://www.gophercon.com/agenda/session/1557396",
+    "description": "Go ships with great tools for diagnosing performance bottlenecks, with pprof’s CPU profiler being perhaps the most well-known and used tool.However, when it comes to diagnosing request latency problems, CPU profiling is often insufficient, as Go request latency is usually dominated by Off-CPU waits for downstream services or databases.This means that developers commonly rely on metrics, traces, or logs to break down their latency problems, requiring them to spend time, money, and even overhead on maintaining the desired level of observability. Despite these efforts, such instrumentation still leaves significant blind spots when it comes to mutex contention, channel bottlenecks, scheduling latency, backoff sleeps, and other Off-CPU waits, especially when they are the cause of high tail latencies.So what if there was a better way to break down any Go latency issue to the code causing it, that requires zero instrumentation and comes with extremely low overhead?If that sounds interesting, this talk is for you. You will learn about a novel implementation of critical path analysis to convert runtime execution tracing data into profiles and how you can use it to root cause even the most challenging tail latency problems with minimal effort.Talk/Attendee Level: Intermediate",
+    "time": "Thu Aug 28, 9:35 AM - 10:00 AM EDT / 10:35 PM - 11:00 PM Your local time   (25 min)",
+    "location": "The Overview, Room 502, Level 5, North Javits",
+    "speakers": [
+      "Felix Geisendörfer"
+    ],
+    "duration": "(25 min)"
+  },
+  {
+    "id": "1557197",
+    "title": "Registration \u0026 Gopher Gear Shop",
+    "url": "https://www.gophercon.com/agenda/session/1557197",
+    "time": "Tue Aug 26, 7:00 AM - 5:30 PM EDT / Tue Aug 26, 8:00 PM - Wed Aug 27, 6:30 AM Your local time   (10 hours, 30 min)",
+    "location": "The Overview Foyer, Level 5, North Javits",
+    "duration": "(10 hours, 30 min)"
+  },
+  {
+    "id": "1565804",
+    "title": "Half-Day Workshop: Go Concurrency: Debugging Goroutines and Channels (requires a separate ticket)",
+    "url": "https://www.gophercon.com/agenda/session/1565804",
+    "description": "Level: All AttendeesDescription: Debugging concurrent Go applications can be tricky. All kinds of problems can arise when concurrency and parallelism are thrown into the mix, whether it’s performance bottlenecks, deadlocks, race conditions, or any other number of potential issues. Go does a lot to mitigate these issues at the language level, making concurrency easy to reason about. However, despite the convenience and ease of use afforded to us by the language, oftentimes you may still find yourself hunting down an elusive bug involving multiple goroutines.This workshop will dive into how to debug goroutines and channels, one of the most powerful yet complex features of Go. During this workshop, attendees will learn how to utilize the built-in features of the Go toolchain such as the race detector and tracing tool, as well as external tools like Delve. We will learn how to use these various tools by fixing actual bugs in real-time. Following each section there will be a final Go program exhibiting a similar bug; attendees can use the techniques learned to fix the issue.What a student is expected to learn: This course is appropriate for all attendees but may be somewhat advanced for a complete beginner. Students will learn how to leverage the various tools available from the Go toolchain, standard library, and beyond in order to solve their complex bugs involving multiple goroutines.Prerequisites: Students are expected to have a basic understanding of the Go programming language. Students do not have to be expert Go users, but they will get the most from the workshop if they are at least comfortable writing Go programs and have experience using Go’s concurrency mechanisms such as goroutines and channels.Recommended PreparationInstall and configure an editor for Go.Install Delve locally.Have a functioning Go environment installed with Go 1.21 or later.Have a GitHub account.Computers should be capable of modern software development, such as access to install and run binaries, install a code editor, etc.Please email the instructor, Derek Parker, for assistance.",
+    "time": "Tue Aug 26, 1:30 PM - 5:30 PM EDT / Wed Aug 27, 2:30 AM - 6:30 AM Your local time   (4 hours)",
+    "location": "Room 406.3, Level 4, North Javits",
+    "speakers": [
+      "Derek Parker"
+    ],
+    "duration": "(4 hours)"
+  },
+  {
+    "id": "1545656",
+    "title": "Neurospicy Meetup 🧠",
+    "url": "https://www.gophercon.com/agenda/session/1545656",
+    "description": "This gathering is included in your conference pass. If you are interested in attending, please register your interest, so we can expect you.   Do you identify as neurodivergent? Let's connect as a community and share our interests (i.e. technical passion or personal hobby) while mingling with fellow spicy Gophers! This event will end before the beginning of The RainGo Connection gathering for any double rainbow conference goers who would like to attend both. 🌈🌈",
+    "time": "Tue Aug 26, 6:00 PM - 8:00 PM EDT / Wed Aug 27, 7:00 AM - 9:00 AM Your local time   (2 hours)",
+    "location": "Porchlight Bar, 271 11th Avenue",
+    "duration": "(2 hours)"
+  },
+  {
+    "id": "1545658",
+    "title": "Registration \u0026 Gopher Gear Shop",
+    "url": "https://www.gophercon.com/agenda/session/1545658",
+    "time": "Wed Aug 27, 7:30 AM - 6:00 PM EDT / Wed Aug 27, 8:30 PM - Thu Aug 28, 7:00 AM Your local time   (10 hours, 30 min)",
+    "location": "The Overview Foyer, Level 5, North Javits",
+    "duration": "(10 hours, 30 min)"
+  },
+  {
+    "id": "1557405",
+    "title": "AI and Go: Opportunities and Challenges",
+    "url": "https://www.gophercon.com/agenda/session/1557405",
+    "description": "As artificial intelligence continues to reshape the practice of software engineering, Go developers face both exciting opportunities and unique challenges. This panel will explore how AI is influencing the Go ecosystem—from building AI-powered systems in Go to integrating with popular AI services. Panelists will discuss Go's role in AI-powered software and infrastructure as well as community efforts to bridge Go and AI. Attendees will gain insights into how Go continues to remain relevant and competitive now and in the AI future.",
+    "time": "Thu Aug 28, 4:45 PM - 5:30 PM EDT / Fri Aug 29, 5:45 AM - 6:30 AM Your local time   (45 min)",
+    "location": "The Overview, Room 502, Level 5, North Javits",
+    "speakers": [
+      "Johnny Boursiquot",
+      "David Soria Parra",
+      "Gari Singh",
+      "Ian Cottrell",
+      "Jaana Dogan",
+      "Solomon Hykes"
+    ],
+    "duration": "(45 min)"
+  },
+  {
+    "id": "1545662",
+    "title": "Hallway Track",
+    "url": "https://www.gophercon.com/agenda/session/1545662",
+    "description": "Some say this is where the magic happens at GopherCon! Join your fellow Gophers for some informal socializing and networking between or during sessions, and find out for yourself. 😊",
+    "time": "Wed Aug 27, 8:00 AM - 5:45 PM EDT / Wed Aug 27, 9:00 PM - Thu Aug 28, 6:45 AM Your local time   (9 hours, 45 min)",
+    "location": "The Overview Foyer, Level 5, North Javits",
+    "duration": "(9 hours, 45 min)"
+  },
+  {
+    "id": "1545640",
+    "title": "Half-Day Workshop: Profiling and Optimizing Go Programs (requires a separate ticket)",
+    "url": "https://www.gophercon.com/agenda/session/1545640",
+    "description": "Level: IntermediateDescription: Go ships with amazing profiling tools, but understanding how and when to use them, as well as understanding their output can be quite challenging.This course was designed to take experienced Go developers and show them how to install, configure, and run the tools.  We will start with benchmarking to give us an idea of how to use the tools. Then we will work with small programs and begin to learn how to not only spot performance issues, but also how to correct them and verify the performance increases.What a student is expected to learn• Introduction and in-depth look at benchmarking, including creating benchmarks and running profiles against them.• Install, configure, and run the pprof tools provided by Google.• Learn about the different profiles that pprof can create, when to use them, and how to read the output of each.• Generate profiles from live/running programs.• Learn about torch graphs and how to read them.• Students will cover several common performance mistakes that Go developers make learning how to spot and correct them.Some of what you’ll work on during the workshop• Write benchmarks for basic code samples and create profiles to determine how to increase performance.• Generate profiles and torch graphs against live running HTTP services to determine bottlenecks and increase performance.• Profile and debug a command line program that handles large amounts of text, and ultimately determine the bottlenecks and refactor that code to be more performant.Prerequisites• Familiarize yourself with Go fundamentals (Go Tour, Go by Example) • Have familiarity with testing in GoRecommended Preparation• Have a GitHub account• Have a functioning Go environment installed with Go 1.23 or later• Use an editor/IDE with Go plugin installed• Computer should be capable of modern software development, such as access to install and run binaries, install a code editor, etc.• Please email the instructor, Cory LaNou, for assistance.",
+    "time": "Tue Aug 26, 8:30 AM - 12:30 PM EDT / Tue Aug 26, 9:30 PM - Wed Aug 27, 1:30 AM Your local time   (4 hours)",
+    "location": "Room 406.2, Level 4, North Javits",
+    "speakers": [
+      "Cory LaNou"
+    ],
+    "duration": "(4 hours)"
+  },
+  {
+    "id": "1557391",
+    "title": "Porting the TypeScript Compiler to Go for a 10x Speedup",
+    "url": "https://www.gophercon.com/agenda/session/1557391",
+    "description": "From the beginning, the TypeScript compiler has been self-hosted, evolving alongside a growing ecosystem of millions of developers. As time went on, we faced challenges with the compiler's performance, largely inherent to the implementation language itself. Through experimentation and testing, we found Go to be an excellent language for our specific needs; a perfect porting language. In this talk, we will explore the process of porting the 150,000+ line TypeScript compiler and its 90,000+ tests to Go, the challenges we faced, lessons we learned, all leading to an overall 10x performance improvement over our previous implementation.Talk/Attendee Level: Intermediate",
+    "time": "Wed Aug 27, 5:00 PM - 5:45 PM EDT / Thu Aug 28, 6:00 AM - 6:45 AM Your local time   (45 min)",
+    "location": "The Overview, Room 502, Level 5, North Javits",
+    "speakers": [
+      "Jake Bailey"
+    ],
+    "duration": "(45 min)"
+  }
+]

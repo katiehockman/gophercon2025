@@ -2,6 +2,10 @@
 
 # GopherCon 2025 MCP Server Installer
 
+# Parse command line arguments
+OFFLINE_MODE=false
+[ "${1:-}" = "--offline" ] && OFFLINE_MODE=true
+
 # Get the directory where the script is located
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BINARY_NAME="gophercon25-mcp"
@@ -18,10 +22,16 @@ mkdir -p "$CURSOR_DIR"
 go build -o "$BINARY_PATH" .
 chmod +x "$BINARY_PATH"
 
+# Prepare command with offline flag if specified
+COMMAND="$BINARY_PATH"
+if [ "$OFFLINE_MODE" = true ]; then
+  COMMAND="$BINARY_PATH --offline"
+fi
+
 # Create the gophercon25 server configuration
 GOPHERCON_CONFIG='{
   "gophercon25": {
-    "command": "'"$BINARY_PATH"'",    
+    "command": "'"$COMMAND"'",    
     "transportType": "stdio",
     "disabled": false,
     "timeout": 60
@@ -49,7 +59,7 @@ else
   echo '{
     "mcpServers": {
       "gophercon25": {
-        "command": "'"$BINARY_PATH"'",    
+        "command": "'"$COMMAND"'",    
         "transportType": "stdio",
         "disabled": false,
         "timeout": 60
