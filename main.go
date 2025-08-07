@@ -10,14 +10,6 @@ import (
 	"github.com/modelcontextprotocol/go-sdk/mcp"
 )
 
-var (
-	offlineMode = flag.Bool("offline", false, "Run in offline mode using cached session data")
-	dataFile    = flag.String("data-file", "sessions_backup.json", "File to save/load session data")
-)
-
-// Channel to signal when sessions are fully loaded.
-var sessionsReady = make(chan bool)
-
 func main() {
 	flag.Parse()
 	if err := loadSessions(); err != nil {
@@ -111,3 +103,11 @@ type Session struct {
 	Speakers    []string `json:"speakers,omitempty"`
 	Duration    string   `json:"duration,omitempty"`
 }
+
+var (
+	offlineMode = flag.Bool("offline", false, "Run in offline mode using cached session data")
+	dataFile    = flag.String("data-file", "sessions_backup.json", "File to save/load session data")
+)
+
+// Channel to signal when sessions are fully loaded.
+var sessionsReady = make(chan bool)
