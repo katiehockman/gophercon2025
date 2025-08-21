@@ -10,33 +10,31 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BINARY_NAME="gophercon25-mcp"
 BINARY_PATH="$SCRIPT_DIR/build/$BINARY_NAME"
 
-VSCODE_DIR="$HOME/.vscode-mcp"
-CONFIG_JSON="$VSCODE_DIR/mcp-servers.json"
+VSCODE_DIR="$HOME/Library/Application Support/Code/User"
+MCP_JSON="$VSCODE_DIR/mcp.json"
 
 mkdir -p "$VSCODE_DIR"
 
-# Prepare command with offline flag if specified
-COMMAND="$BINARY_PATH"
-if [ "$OFFLINE_MODE" = true ]; then
-  COMMAND="$BINARY_PATH --offline"
-fi
+# Build the binary
+go build -o "$BINARY_PATH" .
+chmod +x "$BINARY_PATH"
 
 # Create or update the VSCode MCP server config
-if [ -f "$CONFIG_JSON" ]; then
-  cp "$CONFIG_JSON" "${CONFIG_JSON}.backup"
+ARGS="[]"
+if [ "$OFFLINE_MODE" = true ]; then
+  ARGS='["--offline"]'
 fi
 
-cat > "$CONFIG_JSON" <<EOF
-{
+echo '{
   "servers": {
     "gophercon25": {
-      "command": "$COMMAND",
-      "transport": "stdio",
-      "enabled": true,
+      "command": "'"$BINARY_PATH"'",
+      "args": '"$ARGS"',
+      "transportType": "stdio",
+      "disabled": false,
       "timeout": 60
     }
   }
-}
-EOF
+}' > "$MCP_JSON"
 
-echo "GopherCon 2025 MCP server installed for VSCode!"
+printf "GopherCon 2025 MCP server installed to VSCode!\n"
