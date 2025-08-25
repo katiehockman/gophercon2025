@@ -16,6 +16,7 @@ func main() {
 		panic(err)
 	}
 
+	// Create the MCP server.
 	server := mcp.NewServer(&mcp.Implementation{
 		Name:    "gophercon25",
 		Title:   "GopherCon 2025 Agenda Server",
@@ -24,60 +25,49 @@ func main() {
 
 	// Add tools.
 	mcp.AddTool(server, &mcp.Tool{
-		Name:        "get_all_sessions",
-		Description: "Get a list of all GopherCon 2025 sessions with all relevant information.",
-	}, AllSessions)
+		Name:        "list_sessions",
+		Description: "Lists all GopherCon 2025 sessions with all relevant information.",
+	}, ListSessions)
 	mcp.AddTool(server, &mcp.Tool{
 		Name:        "get_session_details",
-		Description: "Get detailed information about a specific GopherCon session by its ID",
+		Description: "Get detailed information about a specific GopherCon session by ID",
 	}, SessionByID)
 
-	t := mcp.NewLoggingTransport(mcp.NewStdioTransport(), os.Stderr)
+	// Start the server.
 	log.Printf("Starting GopherCon agenda server...")
-	if err := server.Run(context.Background(), t); err != nil {
+	if err := server.Run(context.Background(), &mcp.StdioTransport{}); err != nil {
 		log.Printf("Server failed: %v", err)
 	}
 }
 
-func AllSessions(ctx context.Context, _ *mcp.ServerSession, _ *mcp.CallToolParamsFor[struct{}]) (*mcp.CallToolResultFor[SessionsResult], error) {
-	// Tool 1: Get all sessions.
-
+// ListSessions is a tool that returns all data about all loaded sessions.
+func ListSessions(ctx context.Context, _ *mcp.CallToolRequest, _ any) (*mcp.CallToolResult, SessionsResult, error) {
 	// Block until sessions are ready.
 	<-sessionsReady
 
-	var res mcp.CallToolResultFor[SessionsResult]
-	res.Content = []mcp.Content{
-		&mcp.TextContent{Text: "Successfully found all sessions."},
-	}
-	res.StructuredContent = SessionsResult{
-		Sessions: sessions(),
-	}
-
-	return &res, nil
+	// Tool 1: Get all sessions.
+	return nil, SessionsResult{Sessions: sessions()}, nil
 }
 
-func SessionByID(ctx context.Context, _ *mcp.ServerSession, params *mcp.CallToolParamsFor[SessionIDParams]) (*mcp.CallToolResultFor[SessionsResult], error) {
-	// Tool 2: Get session details by ID.
-
+// SessionByID is a tool that returns all data about a specific session by its ID.
+func SessionByID(ctx context.Context, _ *mcp.CallToolRequest, params SessionIDParams) (*mcp.CallToolResult, SessionsResult, error) {
 	// Block until sessions are ready.
 	<-sessionsReady
 
-	var res mcp.CallToolResultFor[SessionsResult]
-	session, exists := sessionByID(params.Arguments.SessionID)
+	// Tool 2: Get session details by ID.
+	session, exists := sessionByID(params.SessionID)
 	if !exists {
-		res.Content = []mcp.Content{
-			&mcp.TextContent{Text: fmt.Sprintf("Session with ID %s not found. Use get_all_sessions to see available session IDs.", params.Arguments.SessionID)},
-		}
-		return &res, nil
+		return &mcp.CallToolResult{
+			IsError: true,
+			Content: []mcp.Content{
+				&mcp.TextContent{Text: fmt.Sprintf("Session with ID %s not found. Use get_all_sessions to see available session IDs.", params.SessionID)},
+			},
+		}, SessionsResult{}, nil
 	}
 
-	res.Content = []mcp.Content{
-		&mcp.TextContent{Text: "Successfully found session details."},
-	}
-	res.StructuredContent = SessionsResult{
+	return nil, SessionsResult{
 		Sessions: []Session{session},
-	}
-	return &res, nil
+	}, nil
 }
 
 // SessionIDParams are the parameters for session ID requests.
