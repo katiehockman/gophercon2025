@@ -5,7 +5,6 @@ import (
 	"flag"
 	"fmt"
 	"log"
-	"os"
 
 	"github.com/modelcontextprotocol/go-sdk/mcp"
 )
