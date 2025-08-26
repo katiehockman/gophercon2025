@@ -2,8 +2,8 @@ package main
 
 import (
 	"context"
+	"errors"
 	"flag"
-	"fmt"
 	"log"
 
 	"github.com/modelcontextprotocol/go-sdk/mcp"
@@ -56,14 +56,8 @@ func SessionByID(ctx context.Context, _ *mcp.CallToolRequest, params SessionIDPa
 	// Tool 2: Get session details by ID.
 	session, exists := sessionByID(params.SessionID)
 	if !exists {
-		return &mcp.CallToolResult{
-			IsError: true,
-			Content: []mcp.Content{
-				&mcp.TextContent{Text: fmt.Sprintf("Session with ID %s not found. Use get_all_sessions to see available session IDs.", params.SessionID)},
-			},
-		}, SessionsResult{}, nil
+		return nil, SessionsResult{}, errors.New("session not found")
 	}
-
 	return nil, SessionsResult{
 		Sessions: []Session{session},
 	}, nil
